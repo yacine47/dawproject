@@ -7,7 +7,13 @@ from rest_framework.exceptions import ValidationError
 class UserSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = User
-        fields = ['username', 'password', 'email']
+        fields = ['username', 'password', 'email', 'is_staff', 'is_superuser']
+
+
+class UserMoreInfoSerializer(serializers.ModelSerializer):
+    class Meta(object):
+        model = User
+        fields = ['first_name', 'last_name', 'birth_date']
 
 
 class UserLoginSerializer(serializers.Serializer):
